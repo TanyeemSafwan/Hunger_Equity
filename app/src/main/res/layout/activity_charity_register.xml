@@ -144,46 +144,95 @@
             android:padding="10dp"
             android:text="Address"
             android:inputType="textPostalAddress"
-            android:layout_marginBottom="10dp"/>
+            android:layout_marginBottom="10dp"
+            />
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
 
-        <EditText
-            android:id="@+id/charity_password"
+            <EditText
+                android:id="@+id/charity_password"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="20dp"
+                android:layout_marginRight="20dp"
+                android:layout_marginBottom="10dp"
+                android:background="@color/white"
+                android:ems="10"
+                android:inputType="textPassword"
+                android:padding="10dp"
+                android:text="Password"
+
+                android:textColor="@color/black" />
+
+            <ImageButton
+                android:layout_marginTop="6dp"
+                android:id="@+id/charity_eye_1"
+                android:layout_width="50dp"
+                android:layout_height="30dp"
+                android:layout_alignParentEnd="true"
+                android:layout_weight="1"
+                android:background="@color/material_on_background_disabled"
+                android:backgroundTint="@color/design_default_color_background"
+                android:scaleType="fitCenter"
+                app:srcCompat="@mipmap/eye"
+                android:layout_marginEnd="20dp"
+                />
+
+        </RelativeLayout>
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+
+            <EditText
+                android:id="@+id/charity_password_2"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="20dp"
+                android:layout_marginRight="20dp"
+                android:layout_marginBottom="10dp"
+                android:background="@color/white"
+                android:ems="10"
+                android:inputType="textPassword"
+                android:padding="10dp"
+                android:text="Connfirm Password"
+                android:textColor="@color/black" />
+            <ImageButton
+                android:layout_marginTop="6dp"
+                android:id="@+id/charity_eye_2"
+                android:layout_width="50dp"
+                android:layout_height="30dp"
+                android:layout_weight="1"
+                app:srcCompat="@mipmap/eye"
+                android:scaleType="fitCenter"
+                android:backgroundTint="@color/design_default_color_background"
+                android:background="@color/material_on_background_disabled"
+                android:layout_alignParentEnd="true"
+                android:layout_marginEnd="20dp"/>
+
+        </RelativeLayout>
+        <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:ems="10"
-            android:layout_marginLeft="20dp"
-            android:layout_marginRight="20dp"
-            android:background="@color/white"
-            android:textColor="@color/black"
-            android:padding="10dp"
-            android:text="Password"
-            android:inputType="textPassword"
-            
-            android:layout_marginBottom="10dp"/>
+            android:orientation="horizontal">
+            <CheckBox
+                android:id="@+id/checkBox"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Accept "
+                android:layout_marginLeft="20dp"
+                android:textColor="@color/black"
+                android:textStyle="bold"/>
+            <Button
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:background="@color/material_on_background_disabled"
+                android:text="terms &amp; conditions"
+                android:textAllCaps="false"
+                android:textColor="#0000FF"/>
 
-        <EditText
-            android:id="@+id/charity_password_2"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:ems="10"
-            android:layout_marginLeft="20dp"
-            android:layout_marginRight="20dp"
-            android:background="@color/white"
-            android:textColor="@color/black"
-            android:padding="10dp"
-            android:text="Connfirm Password"
-            android:inputType="textPassword"
-            android:layout_marginBottom="10dp"/>
+        </LinearLayout>
 
-        <CheckBox
-            android:id="@+id/checkBox"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:text="Accept terms &amp; conditions"
-            android:layout_marginLeft="20dp"
-            android:layout_marginRight="20dp"
-            android:textColor="@color/black"
-            android:textStyle="bold"/>
 
         <Button
             android:id="@+id/charity_create"
