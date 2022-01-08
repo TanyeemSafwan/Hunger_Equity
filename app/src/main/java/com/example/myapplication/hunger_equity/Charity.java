@@ -20,6 +20,9 @@ public class Charity {
     public Charity() {
     }
 
+    public Charity(Class<Charity> charityClass) {
+    }
+
     public String getC_Address() {
         return C_Address;
     }

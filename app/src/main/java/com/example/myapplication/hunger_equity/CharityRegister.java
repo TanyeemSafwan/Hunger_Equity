@@ -3,6 +3,8 @@ package com.example.myapplication.hunger_equity;
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 
+import android.content.Intent;
+import android.net.Uri;
 import android.os.Bundle;
 import android.text.method.HideReturnsTransformationMethod;
 import android.text.method.PasswordTransformationMethod;
@@ -23,11 +25,11 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class CharityRegister extends AppCompatActivity {
-    List<Charity> CharityList=new ArrayList<>();
+    List<Charity> charityList=new ArrayList<>();
     public static int count=0;
     public static int count2=0;
     private EditText inputcName,inputcOrgan,inputcPhone,inputcEmail,inputcAdress,inputcPassword,inputcPassword2;
-    private Button cDone;
+    private Button cDone,tc;
     private ImageButton look,look2;
     private DatabaseReference mFirebaseDatabase;
     private FirebaseDatabase mFirebaseInstance;
@@ -49,6 +51,7 @@ public class CharityRegister extends AppCompatActivity {
         look=(ImageButton)findViewById(R.id.charity_eye_1);
         look2=(ImageButton)findViewById(R.id.charity_eye_2);
         inputcPassword2=(EditText)findViewById(R.id.charity_password_2);
+        tc=(Button)findViewById(R.id.terms_conditions);
 
 
         look.setOnClickListener(new View.OnClickListener() {
@@ -94,15 +97,27 @@ public class CharityRegister extends AppCompatActivity {
       //mFirebaseDatabase = mFirebaseInstance.getReference("Charity");
        mFirebaseDatabase= FirebaseDatabase.getInstance().getReference("Charity");
 
+       CheckBox checkBox = (CheckBox) findViewById(R.id.checkBox);
 
+       mFirebaseDatabase.addValueEventListener(new ValueEventListener() {
+           @Override
+           public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
+               for (DataSnapshot dataSnapshot1 : dataSnapshot.getChildren()) {
+                   Charity userDetails = dataSnapshot1.getValue(Charity.class);
+                   charityList.add(userDetails);
+               }
+           }
 
-            CheckBox checkBox = (CheckBox) findViewById(R.id.checkBox);
+           @Override
+           public void onCancelled(@NonNull DatabaseError error) {
 
+           }
+       });
 
         cDone.setOnClickListener(new View.OnClickListener() {
             @Override
-            public void onClick(View v) {
-                if (checkBox.isChecked()) {
+            public void onClick(View vi) {
+                if (checkBox.isChecked() && !charityList.contains(inputcEmail.getText().toString())) {
                     String key = mFirebaseDatabase.push().getKey();
                     Charity charity = new Charity(inputcAdress.getText().toString(), inputcEmail.getText().toString(), inputcName.getText().toString(), inputcOrgan.getText().toString(),
                             inputcPassword.getText().toString(),
@@ -111,6 +126,14 @@ public class CharityRegister extends AppCompatActivity {
                     mFirebaseDatabase.child(key).setValue(charity);
                     finish();
                 }
+            }
+        });
+        tc.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Uri uri = Uri.parse("https://developer.android.com/studio/terms"); // missing 'http://' will cause crashed
+                Intent intent = new Intent(Intent.ACTION_VIEW, uri);
+                startActivity(intent);
             }
         });
         mFirebaseDatabase.addValueEventListener(new ValueEventListener() {
