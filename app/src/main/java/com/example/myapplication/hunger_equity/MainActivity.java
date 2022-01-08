@@ -5,9 +5,6 @@ import androidx.appcompat.app.AppCompatActivity;
 import android.content.Intent;
 import android.os.Bundle;
 import android.os.Handler;
-import android.text.Layout;
-import android.view.View;
-import android.widget.RelativeLayout;
 
 public class MainActivity extends AppCompatActivity {
 
@@ -33,7 +30,7 @@ public class MainActivity extends AppCompatActivity {
             @Override
             public void run() {
 
-                Intent Intent = new Intent(MainActivity.this,Login.class);
+                Intent Intent = new Intent(MainActivity.this, CharityRegister.class);
                 MainActivity.this.startActivity(Intent);
                 MainActivity.this.finish();
             }
