@@ -30,7 +30,7 @@ public class MainActivity extends AppCompatActivity {
             @Override
             public void run() {
 
-                Intent Intent = new Intent(MainActivity.this, CharityRegister.class);
+                Intent Intent = new Intent(MainActivity.this, Registration.class);
                 MainActivity.this.startActivity(Intent);
                 MainActivity.this.finish();
             }

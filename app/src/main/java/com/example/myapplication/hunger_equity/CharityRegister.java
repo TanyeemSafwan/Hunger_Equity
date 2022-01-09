@@ -13,6 +13,7 @@ import android.widget.Button;
 import android.widget.CheckBox;
 import android.widget.EditText;
 import android.widget.ImageButton;
+import android.widget.RadioButton;
 
 import com.google.firebase.database.DataSnapshot;
 import com.google.firebase.database.DatabaseError;
@@ -30,7 +31,7 @@ public class CharityRegister extends AppCompatActivity {
     public static int count2=0;
     private EditText inputcName,inputcOrgan,inputcPhone,inputcEmail,inputcAdress,inputcPassword,inputcPassword2;
     private Button cDone,tc;
-    private ImageButton look,look2;
+    private ImageButton look,look2,back_c;
     private DatabaseReference mFirebaseDatabase;
     private FirebaseDatabase mFirebaseInstance;
     @Override
@@ -52,6 +53,16 @@ public class CharityRegister extends AppCompatActivity {
         look2=(ImageButton)findViewById(R.id.charity_eye_2);
         inputcPassword2=(EditText)findViewById(R.id.charity_password_2);
         tc=(Button)findViewById(R.id.terms_conditions);
+        back_c=(ImageButton)findViewById(R.id.charity_back_key);
+
+        back_c.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent i=new Intent(CharityRegister.this,Registration.class);
+                startActivity(i);
+            }
+        });
+
 
 
         look.setOnClickListener(new View.OnClickListener() {
@@ -117,7 +128,7 @@ public class CharityRegister extends AppCompatActivity {
         cDone.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View vi) {
-                if (checkBox.isChecked() && !charityList.contains(inputcEmail.getText().toString())) {
+                if (checkBox.isChecked() && !charityList.toString().contains(inputcEmail.getText().toString())) {
                     String key = mFirebaseDatabase.push().getKey();
                     Charity charity = new Charity(inputcAdress.getText().toString(), inputcEmail.getText().toString(), inputcName.getText().toString(), inputcOrgan.getText().toString(),
                             inputcPassword.getText().toString(),
@@ -134,17 +145,6 @@ public class CharityRegister extends AppCompatActivity {
                 Uri uri = Uri.parse("https://developer.android.com/studio/terms"); // missing 'http://' will cause crashed
                 Intent intent = new Intent(Intent.ACTION_VIEW, uri);
                 startActivity(intent);
-            }
-        });
-        mFirebaseDatabase.addValueEventListener(new ValueEventListener() {
-            @Override
-            public void onDataChange(@NonNull DataSnapshot snapshot) {
-
-            }
-
-            @Override
-            public void onCancelled(@NonNull DatabaseError error) {
-
             }
         });
 
