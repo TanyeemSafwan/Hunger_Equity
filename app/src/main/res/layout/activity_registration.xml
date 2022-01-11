@@ -29,13 +29,6 @@
             android:src="@mipmap/food"
             android:translationY="120dp" />
 
-        <ImageView
-            android:id="@+id/initial_logo_2"
-            android:layout_width="150dp"
-            android:layout_height="200dp"
-            android:layout_centerInParent="true"
-            android:src="@mipmap/donation" />
-
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
@@ -43,27 +36,35 @@
             android:text="Register As:"
             android:textColor="@color/white"
             android:textSize="20dp"
-            android:textStyle="bold"
-            android:translationY="120dp" />
+            android:textStyle="bold" />
 
         <Button
             android:id="@+id/donor_button"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_alignParentBottom="true"
-            android:layout_centerHorizontal="true"
+            android:layout_centerInParent="true"
+            android:backgroundTint="#178cbe"
             android:text="Donor"
-            android:translationX="-50dp"
-            android:translationY="-150dp" />
+            android:translationY="40dp" />
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerInParent="true"
+            android:text="OR"
+            android:translationY="75dp"
+            android:textColor="@color/white"
+            android:textSize="20dp"
+            android:textStyle="bold" />
+
         <Button
-            android:layout_centerHorizontal="true"
-            android:translationX="50dp"
-            android:translationY="-150dp"
-            android:layout_alignParentBottom="true"
             android:id="@+id/charity_button"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="Charity"/>
+            android:layout_centerInParent="true"
+            android:layout_centerVertical="true"
+            android:backgroundTint="#178cbe"
+            android:text="Charity"
+            android:translationY="110dp" />
     </RelativeLayout>
 
 

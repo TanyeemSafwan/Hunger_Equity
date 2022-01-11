@@ -12,12 +12,16 @@ import android.widget.Button;
 import android.widget.CheckBox;
 import android.widget.EditText;
 import android.widget.ImageButton;
+import android.widget.TextView;
 
 import com.google.firebase.database.DataSnapshot;
 import com.google.firebase.database.DatabaseError;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
+import com.google.firebase.database.Query;
 import com.google.firebase.database.ValueEventListener;
+
+import org.w3c.dom.Text;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -26,9 +30,11 @@ public class DonorRegi extends AppCompatActivity {
     List<Donor> donorList=new ArrayList<>();
     public static int count=0;
     public static int count2=0;
+    public static int count23=0;
     private EditText inputdName,inputdPhone,inputdEmail,inputdAdress,inputdPassword,inputdPassword2;
     private Button dDone,tcd;
     private ImageButton look_d,look2_d,back;
+    private TextView sign;
     private DatabaseReference dFirebaseDatabase;
 
     @Override
@@ -40,12 +46,22 @@ public class DonorRegi extends AppCompatActivity {
         inputdName=(EditText) findViewById(R.id.donor_name);
         inputdPhone=(EditText) findViewById(R.id.donor_phone);
         inputdPassword=(EditText) findViewById(R.id.donor_password);
+        inputdPassword2=(EditText)findViewById(R.id.donor_password_2);
         dDone=(Button)findViewById(R.id.donor_create);
         look_d=(ImageButton)findViewById(R.id.donor_eye_1);
         look2_d=(ImageButton)findViewById(R.id.donor_eye_2);
         inputdPassword2=(EditText)findViewById(R.id.donor_password_2);
         tcd=(Button)findViewById(R.id.terms_conditions_donor);
         back=(ImageButton)findViewById(R.id.donor_back_key);
+        sign=(TextView)findViewById(R.id.sign_in_donor);
+
+        sign.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent ne=new Intent(DonorRegi.this,DonorLogin.class);
+                startActivity(ne);
+            }
+        });
 
         back.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -103,15 +119,21 @@ public class DonorRegi extends AppCompatActivity {
         dDone.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View vie) {
-                if (checkBox1.isChecked()) {
-                    String key = dFirebaseDatabase.push().getKey();
+                if (checkBox1.isChecked() & check()==false) {
+                    String key = inputdName.getText().toString();
                     Donor donor = new Donor(inputdAdress.getText().toString(), inputdEmail.getText().toString(), inputdName.getText().toString(),
                             inputdPassword.getText().toString(),
                             inputdPhone.getText().toString()
                     );
                     dFirebaseDatabase.child(key).setValue(donor);
-
+                    Intent ion=new Intent(DonorRegi.this,DonorLogin.class);
+                    startActivity(ion);
                 }
+                else
+                {
+                    inputdName.setError("UserName Already Taken");
+                }
+
             }
         });
         tcd.setOnClickListener(new View.OnClickListener() {
@@ -125,6 +147,40 @@ public class DonorRegi extends AppCompatActivity {
 
 
 
+
+
+    }
+    public boolean check()
+    {
+        String takenName=inputdName.getText().toString();
+        String takenPassword=inputdPassword.getText().toString();
+        Query checkUser=dFirebaseDatabase.orderByChild("D_Name").equalTo(takenName);
+        checkUser.addListenerForSingleValueEvent(new ValueEventListener() {
+            @Override
+            public void onDataChange(@NonNull DataSnapshot snapshot2) {
+
+                if (snapshot2.exists()) {
+                    String passDB = snapshot2.child(takenName).child("D_Name").getValue(String.class);
+
+                    if (passDB.equals(takenName)) {
+                        count23=1;
+                    } else {
+                        count23=2;
+                    }
+                } else {
+                    count23=2;
+                }
+            }
+            @Override
+            public void onCancelled(@NonNull DatabaseError error) {
+
+            }
+        });
+        if(count23==1)
+        {
+            return true;
+        }
+            return false;
 
 
     }
