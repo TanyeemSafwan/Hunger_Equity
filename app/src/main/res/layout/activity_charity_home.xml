@@ -5,37 +5,131 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     tools:context=".CharityHome"
-    android:orientation="vertical">
-    <TextView
-        android:id="@+id/textView"
-        android:layout_width="wrap_content"
+    android:orientation="vertical"
+    android:background="@drawable/rectangle">
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+
+        <ImageButton
+            android:layout_width="40dp"
+            android:layout_height="40dp"
+            android:layout_marginStart="20dp"
+            android:layout_marginTop="20dp"
+            android:layout_marginEnd="20dp"
+            android:layout_marginBottom="20dp"
+            android:backgroundTint="@color/material_on_background_disabled"
+            android:src="@drawable/arrow" />
+
+        <TextView
+            android:id="@+id/charity_user_name"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerInParent="true"
+            android:layout_marginStart="20dp"
+            android:layout_marginTop="20dp"
+            android:layout_marginEnd="20dp"
+            android:layout_marginBottom="20dp"
+            android:text="Random User"
+            android:textSize="30dp" />
+
+        <ImageButton
+            android:layout_width="40dp"
+            android:layout_height="40dp"
+            android:layout_alignParentEnd="true"
+            android:layout_marginStart="20dp"
+            android:layout_marginTop="20dp"
+            android:layout_marginEnd="20dp"
+            android:layout_marginBottom="20dp"
+            android:backgroundTint="@color/material_on_background_disabled"
+            android:scaleType="fitXY"
+            android:src="@mipmap/home" />
+
+    </RelativeLayout>
+    <RelativeLayout
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="TextView"
-        tools:layout_editor_absoluteX="83dp"
-        tools:layout_editor_absoluteY="26dp" />
+        >
+
+        <ImageView
+            android:layout_width="70dp"
+            android:layout_height="70dp"
+            android:background="@drawable/circle"
+            android:backgroundTint="@color/material_on_background_disabled"
+            android:layout_centerInParent="true"/>
+
+        <ImageButton
+            android:id="@+id/charity_user_photo"
+            android:layout_width="50dp"
+            android:layout_height="50dp"
+            android:layout_centerInParent="true"
+            android:background="@color/material_on_background_disabled"
+            android:scaleType="centerCrop"
+            android:src="@mipmap/user" />
+
+    </RelativeLayout>
 
     <TextView
-        android:id="@+id/textView2"
-        android:layout_width="wrap_content"
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="TextView"
-        tools:layout_editor_absoluteX="89dp"
-        tools:layout_editor_absoluteY="108dp" />
-
+        android:textSize="25dp"
+        android:text="Donor"
+        android:textColor="#F8D218"
+        android:layout_marginLeft="20dp"/>
     <TextView
-        android:id="@+id/textView3"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="TextView"
-        tools:layout_editor_absoluteX="89dp"
-        tools:layout_editor_absoluteY="169dp" />
-
+        android:text="email"
+        android:textSize="20dp"
+        android:layout_marginLeft="20dp"
+        android:textColor="@color/white"
+        android:id="@+id/charity_user_email"/>
     <TextView
-        android:id="@+id/textView4"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="TextView"
-        tools:layout_editor_absoluteX="95dp"
-        tools:layout_editor_absoluteY="226dp" />
+        android:text="phone"
+        android:textSize="20dp"
+        android:layout_marginLeft="20dp"
+        android:textColor="@color/white"
+        android:id="@+id/charity_user_phone"/>
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="address"
+        android:textSize="20dp"
+        android:layout_marginLeft="20dp"
+        android:textColor="@color/white"
+        android:id="@+id/charity_user_address"/>
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+
+        <Button
+            android:id="@+id/charity_user_edit"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerInParent="true"
+            android:backgroundTint="#678CCB"
+            android:text="EDIT"
+            android:textColor="@color/white" />
+    </RelativeLayout>
+    <ImageView
+        android:layout_width="match_parent"
+        android:layout_height="3dp"
+        android:background="@color/black"
+        />
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:gravity="center"
+        android:textSize="20dp"
+        android:padding="10dp"
+        android:textColor="@color/white"
+        android:text="Donation History"/>
+    <ImageView
+        android:layout_width="match_parent"
+        android:layout_height="3dp"
+        android:background="@color/black"
+        />
 
 </LinearLayout>

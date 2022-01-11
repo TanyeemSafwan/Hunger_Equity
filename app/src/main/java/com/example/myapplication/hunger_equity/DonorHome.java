@@ -13,10 +13,10 @@ public class DonorHome extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_donor_home);
         TextView dName,dEmail,dPhone,dAdress;
-        dName=(TextView) findViewById(R.id.textView);
-        dEmail=(TextView) findViewById(R.id.textView2);
-        dPhone=(TextView) findViewById(R.id.textView3);
-        dAdress=(TextView) findViewById(R.id.textView4);
+        dName=(TextView) findViewById(R.id.donor_user_name);
+        dEmail=(TextView) findViewById(R.id.donor_user_email);
+        dPhone=(TextView) findViewById(R.id.donor_user_phone);
+        dAdress=(TextView) findViewById(R.id.donor_user_address);
 
         Intent in=getIntent();
         String userName=in.getStringExtra("name");

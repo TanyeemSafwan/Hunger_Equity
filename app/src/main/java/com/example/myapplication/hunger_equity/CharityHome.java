@@ -13,10 +13,10 @@ public class CharityHome extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_charity_home);
         TextView cName,cEmail,cPhone,cAdress;
-        cName=(TextView) findViewById(R.id.textView);
-        cEmail=(TextView) findViewById(R.id.textView2);
-        cPhone=(TextView) findViewById(R.id.textView3);
-        cAdress=(TextView) findViewById(R.id.textView4);
+        cName=(TextView) findViewById(R.id.charity_user_name);
+        cEmail=(TextView) findViewById(R.id.charity_user_email);
+        cPhone=(TextView) findViewById(R.id.charity_user_phone);
+        cAdress=(TextView) findViewById(R.id.charity_user_address);
 
         Intent in=getIntent();
         String userName=in.getStringExtra("name");

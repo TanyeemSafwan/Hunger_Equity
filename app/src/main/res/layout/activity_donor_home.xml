@@ -5,38 +5,123 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     tools:context=".DonorHome"
-    android:orientation="vertical">
+    android:orientation="vertical"
+    android:background="@drawable/rectangle">
 
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        >
+        <ImageButton
+            android:layout_margin="20dp"
+            android:layout_width="40dp"
+            android:layout_height="40dp"
+            android:src="@drawable/arrow"
+            android:backgroundTint="@color/material_on_background_disabled"/>
+        <TextView
+            android:layout_centerInParent="true"
+            android:layout_margin="20dp"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:id="@+id/donor_user_name"
+            android:text="Random User"
+            android:textSize="30dp"
+            />
+        <ImageButton
+            android:layout_alignParentEnd="true"
+            android:layout_margin="20dp"
+            android:layout_width="40dp"
+            android:layout_height="40dp"
+            android:src="@mipmap/home"
+            android:backgroundTint="@color/material_on_background_disabled"
+            android:scaleType="fitXY"/>
+
+    </RelativeLayout>
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        >
+
+        <ImageView
+            android:layout_width="70dp"
+            android:layout_height="70dp"
+            android:background="@drawable/circle"
+            android:backgroundTint="@color/material_on_background_disabled"
+            android:layout_centerInParent="true"/>
+        <ImageButton
+            android:layout_centerInParent="true"
+            android:id="@+id/donor_user_photo"
+            android:layout_width="50dp"
+            android:layout_height="50dp"
+            android:scaleType="centerCrop"
+           android:background="@color/material_on_background_disabled"
+            android:src="@mipmap/user"
+            />
+
+    </RelativeLayout>
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:textSize="25dp"
+            android:text="Donor"
+            android:textColor="#F8D218"
+            android:layout_marginLeft="20dp"/>
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="email"
+            android:textSize="20dp"
+            android:layout_marginLeft="20dp"
+            android:textColor="@color/white"
+            android:id="@+id/donor_user_email"/>
     <TextView
-        android:id="@+id/textView"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="TextView"
-        tools:layout_editor_absoluteX="83dp"
-        tools:layout_editor_absoluteY="26dp" />
-
+        android:text="phone"
+        android:textSize="20dp"
+        android:layout_marginLeft="20dp"
+        android:textColor="@color/white"
+        android:id="@+id/donor_user_phone"/>
     <TextView
-        android:id="@+id/textView2"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="TextView"
-        tools:layout_editor_absoluteX="89dp"
-        tools:layout_editor_absoluteY="108dp" />
+        android:text="address"
+        android:textSize="20dp"
+        android:layout_marginLeft="20dp"
+        android:textColor="@color/white"
+        android:id="@+id/donor_user_address"/>
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
 
+        <Button
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerHorizontal="true"
+            android:backgroundTint="#678CCB"
+            android:id="@+id/donor_user_edit"
+            android:text="EDIT"
+            android:textColor="@color/white" />
+    </RelativeLayout>
+    <ImageView
+        android:layout_width="match_parent"
+        android:layout_height="3dp"
+        android:background="@color/black"
+        />
     <TextView
-        android:id="@+id/textView3"
-        android:layout_width="wrap_content"
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="TextView"
-        tools:layout_editor_absoluteX="89dp"
-        tools:layout_editor_absoluteY="169dp" />
+        android:gravity="center"
+        android:textSize="20dp"
+        android:padding="10dp"
+        android:textColor="@color/white"
+        android:text="Donation History"/>
+    <ImageView
+        android:layout_width="match_parent"
+        android:layout_height="3dp"
+        android:background="@color/black"
+        />
 
-    <TextView
-        android:id="@+id/textView4"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="TextView"
-        tools:layout_editor_absoluteX="95dp"
-        tools:layout_editor_absoluteY="226dp" />
 
 </LinearLayout>
