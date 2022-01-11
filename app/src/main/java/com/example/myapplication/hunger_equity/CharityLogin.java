@@ -38,18 +38,7 @@ public class CharityLogin extends AppCompatActivity {
         password=(EditText) findViewById(R.id.charity_login_password);
         sign=(TextView)findViewById(R.id.charity_sign);
 
-        name.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                name.getText().clear();
-            }
-        });
-        password.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                password.getText().clear();
-            }
-        });
+
 
         sign.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -123,12 +112,6 @@ public class CharityLogin extends AppCompatActivity {
         }
 
     }
-    public void login(View vi)
-    {
-
-
-
-    }
     public void isUser()
     {
         String takenName=name.getText().toString().trim();
@@ -145,8 +128,19 @@ public class CharityLogin extends AppCompatActivity {
                     String passDB = snapshot2.child(takenName).child("c_Password").getValue(String.class);
 
                     if (passDB.equals(takenPassword)) {
+                        String nameDB = snapshot2.child(takenName).child("c_Name").getValue(String.class);
+                        String emailDB = snapshot2.child(takenName).child("c_Email").getValue(String.class);
+                        String phoneDB = snapshot2.child(takenName).child("c_Phone").getValue(String.class);
+                        String addressDB = snapshot2.child(takenName).child("c_Address").getValue(String.class);
                         Intent i = new Intent(CharityLogin.this, CharityHome.class);
+
+                        i.putExtra("name",nameDB);
+                        i.putExtra("email",emailDB);
+                        i.putExtra("phone",phoneDB);
+                        i.putExtra("address",addressDB);
+
                         startActivity(i);
+
                     } else {
                         password.setError("Wrong password");
                     }

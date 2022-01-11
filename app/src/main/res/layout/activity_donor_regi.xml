@@ -83,7 +83,8 @@
             android:padding="10dp"
             android:ems="10"
             android:inputType="textPersonName"
-            android:text="UserName"
+            android:hint="UserName"
+            android:text=""
             android:layout_marginBottom="10dp" />
 
 
@@ -92,12 +93,13 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:ems="10"
+            android:text=""
             android:layout_marginLeft="20dp"
             android:layout_marginRight="20dp"
             android:background="@color/white"
             android:textColor="@color/black"
             android:padding="10dp"
-            android:text="Email"
+            android:hint="Email"
             android:inputType="textEmailAddress"
             android:layout_marginBottom="10dp"/>
 
@@ -106,12 +108,13 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:ems="10"
+            android:text=""
             android:layout_marginLeft="20dp"
             android:layout_marginRight="20dp"
             android:background="@color/white"
             android:textColor="@color/black"
             android:padding="10dp"
-            android:text="Phone Number"
+            android:hint="Phone Number"
             android:inputType="phone"
             android:layout_marginBottom="10dp"/>
 
@@ -120,12 +123,13 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:ems="10"
+            android:text=""
             android:layout_marginLeft="20dp"
             android:layout_marginRight="20dp"
             android:background="@color/white"
             android:textColor="@color/black"
             android:padding="10dp"
-            android:text="Address"
+            android:hint="Address"
             android:inputType="textPostalAddress"
             android:layout_marginBottom="10dp"
             />
@@ -142,9 +146,11 @@
                 android:layout_marginBottom="10dp"
                 android:background="@color/white"
                 android:ems="10"
+                android:hint="Password"
+
                 android:inputType="textPassword"
                 android:padding="10dp"
-                android:text="Password"
+                android:text=""
 
                 android:textColor="@color/black" />
 
@@ -175,9 +181,10 @@
                 android:layout_marginBottom="10dp"
                 android:background="@color/white"
                 android:ems="10"
+                android:hint="Connfirm Password"
                 android:inputType="textPassword"
                 android:padding="10dp"
-                android:text="Connfirm Password"
+                android:text=""
                 android:textColor="@color/black" />
 
             <ImageButton
