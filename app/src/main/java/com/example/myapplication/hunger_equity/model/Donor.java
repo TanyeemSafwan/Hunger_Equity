@@ -1,4 +1,4 @@
-package com.example.myapplication.hunger_equity;
+package com.example.myapplication.hunger_equity.model;
 
 public class Donor {
     String D_Address;
@@ -7,7 +7,7 @@ public class Donor {
     String D_Password;
     String D_Phone;
 
-    public Donor() {
+    public Donor(String s, String toString, String userName, String string, String userPassword, String s1) {
     }
 
     public Donor(String d_Address, String d_Email, String d_Name, String d_Password, String d_Phone) {
@@ -56,5 +56,16 @@ public class Donor {
 
     public void setD_Phone(String d_Phone) {
         D_Phone = d_Phone;
+    }
+
+    @Override
+    public String toString() {
+        return "Donor{" +
+                "D_Address='" + D_Address + '\'' +
+                ", D_Email='" + D_Email + '\'' +
+                ", D_Name='" + D_Name + '\'' +
+                ", D_Password='" + D_Password + '\'' +
+                ", D_Phone='" + D_Phone + '\'' +
+                '}';
     }
 }

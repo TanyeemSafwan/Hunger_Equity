@@ -1,4 +1,4 @@
-package com.example.myapplication.hunger_equity;
+package com.example.myapplication.hunger_equity.model;
 
 public class Charity {
     String C_Address;
@@ -69,6 +69,18 @@ public class Charity {
 
     public void setC_Phone(String c_Phone) {
         C_Phone = c_Phone;
+    }
+
+    @Override
+    public String toString() {
+        return "Charity{" +
+                "C_Address='" + C_Address + '\'' +
+                ", C_Email='" + C_Email + '\'' +
+                ", C_Name='" + C_Name + '\'' +
+                ", C_Organ='" + C_Organ + '\'' +
+                ", C_Password='" + C_Password + '\'' +
+                ", C_Phone='" + C_Phone + '\'' +
+                '}';
     }
 }
 

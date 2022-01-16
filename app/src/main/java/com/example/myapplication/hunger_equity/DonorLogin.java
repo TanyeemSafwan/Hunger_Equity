@@ -67,7 +67,7 @@ public class DonorLogin extends AppCompatActivity {
         });
         login.setOnClickListener(new View.OnClickListener() {
             @Override
-            public void onClick(View v) {
+            public void onClick(View vi) {
                 if(validateName()==true && validatePassword()==true)
                 {
                     isUser();
@@ -130,6 +130,7 @@ public class DonorLogin extends AppCompatActivity {
                         i.putExtra("email",emailDB);
                         i.putExtra("phone",phoneDB);
                         i.putExtra("address",addressDB);
+                        i.putExtra("password",passDB);
                         startActivity(i);
                     } else {
                         password.setError("Wrong password");

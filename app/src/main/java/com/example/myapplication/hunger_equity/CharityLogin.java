@@ -132,12 +132,15 @@ public class CharityLogin extends AppCompatActivity {
                         String emailDB = snapshot2.child(takenName).child("c_Email").getValue(String.class);
                         String phoneDB = snapshot2.child(takenName).child("c_Phone").getValue(String.class);
                         String addressDB = snapshot2.child(takenName).child("c_Address").getValue(String.class);
+                        String organDB = snapshot2.child(takenName).child("c_Organ").getValue(String.class);
                         Intent i = new Intent(CharityLogin.this, CharityHome.class);
 
                         i.putExtra("name",nameDB);
                         i.putExtra("email",emailDB);
                         i.putExtra("phone",phoneDB);
                         i.putExtra("address",addressDB);
+                        i.putExtra("password",passDB);
+                        i.putExtra("organ",organDB);
 
                         startActivity(i);
 
