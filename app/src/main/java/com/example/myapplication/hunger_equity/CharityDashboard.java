@@ -10,5 +10,8 @@ public class CharityDashboard extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_charity_dashboard);
+
+
+
     }
 }
