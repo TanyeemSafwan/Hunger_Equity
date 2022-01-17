@@ -2,7 +2,9 @@ package com.example.myapplication.hunger_equity;
 
 import androidx.appcompat.app.AppCompatActivity;
 
+import android.content.Context;
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
@@ -16,6 +18,7 @@ import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
 
 public class DonorProfileEdit extends AppCompatActivity {
+    SharedPreferences sp;
     TextView name;
     EditText email,password,address,organ,phone;
     Button submit;
@@ -39,12 +42,18 @@ public class DonorProfileEdit extends AppCompatActivity {
             }
         });
 
-        Intent gIntent=getIntent();
+        /*Intent gIntent=getIntent();
         String userName=gIntent.getStringExtra("name");
         String userEmail=gIntent.getStringExtra("email");
         String userPhone=gIntent.getStringExtra("phone");
         String userAddress=gIntent.getStringExtra("address");
-        String userPassword=gIntent.getStringExtra("password");
+        String userPassword=gIntent.getStringExtra("password");*/
+        sp=getApplicationContext().getSharedPreferences("DonorInfo", Context.MODE_PRIVATE);
+        String userName=sp.getString("name","");
+        String userEmail=sp.getString("email","");
+        String userPhone=sp.getString("phone","");
+        String userAddress=sp.getString("address","");
+        String userPassword=sp.getString("password","");
 
         name.setText(userName);
         email.setText(userEmail);

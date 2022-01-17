@@ -3,7 +3,9 @@ package com.example.myapplication.hunger_equity;
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 
+import android.content.Context;
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.text.method.PasswordTransformationMethod;
 import android.view.View;
@@ -21,7 +23,7 @@ import com.google.firebase.database.Query;
 import com.google.firebase.database.ValueEventListener;
 
 public class CharityLogin extends AppCompatActivity {
-
+    SharedPreferences sp;
     Button login;
     EditText name,password;
     ImageButton eyes;
@@ -32,6 +34,9 @@ public class CharityLogin extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_charity_login);
+
+        sp=getSharedPreferences("CharityInfo", Context.MODE_PRIVATE);
+
         eyes=(ImageButton) findViewById(R.id.charity_eye_login);
         login=(Button)findViewById(R.id.charity_login);
         name=(EditText) findViewById(R.id.charity_login_name);
@@ -133,14 +138,16 @@ public class CharityLogin extends AppCompatActivity {
                         String phoneDB = snapshot2.child(takenName).child("c_Phone").getValue(String.class);
                         String addressDB = snapshot2.child(takenName).child("c_Address").getValue(String.class);
                         String organDB = snapshot2.child(takenName).child("c_Organ").getValue(String.class);
-                        Intent i = new Intent(CharityLogin.this, CharityHome.class);
+                        Intent i = new Intent(CharityLogin.this, CharityDashboard.class);
+                        SharedPreferences.Editor editor=sp.edit();
 
-                        i.putExtra("name",nameDB);
-                        i.putExtra("email",emailDB);
-                        i.putExtra("phone",phoneDB);
-                        i.putExtra("address",addressDB);
-                        i.putExtra("password",passDB);
-                        i.putExtra("organ",organDB);
+                        editor.putString("name",nameDB);
+                        editor.putString("email",emailDB);
+                        editor.putString("phone",phoneDB);
+                        editor.putString("address",addressDB);
+                        editor.putString("password",passDB);
+                        editor.putString("organ",organDB);
+                        editor.commit();
 
                         startActivity(i);
 

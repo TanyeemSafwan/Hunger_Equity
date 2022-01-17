@@ -3,7 +3,9 @@ package com.example.myapplication.hunger_equity;
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 
+import android.content.Context;
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.text.method.PasswordTransformationMethod;
 import android.view.View;
@@ -19,6 +21,7 @@ import com.google.firebase.database.Query;
 import com.google.firebase.database.ValueEventListener;
 
 public class DonorLogin extends AppCompatActivity {
+    SharedPreferences sp;
     Button login;
     EditText name,password;
     ImageButton eyes;
@@ -28,6 +31,9 @@ public class DonorLogin extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_donor_login);
+
+        sp=sp=getApplicationContext().getSharedPreferences("DonorInfo", Context.MODE_PRIVATE);
+
         eyes=(ImageButton) findViewById(R.id.donor_eye_login);
         login=(Button)findViewById(R.id.donor_login);
         name=(EditText) findViewById(R.id.donor_login_name);
@@ -125,13 +131,23 @@ public class DonorLogin extends AppCompatActivity {
                         String phoneDB = snapshot1.child(takenName).child("d_Phone").getValue(String.class);
                         String addressDB = snapshot1.child(takenName).child("d_Address").getValue(String.class);
 
-                        Intent i = new Intent(DonorLogin.this, DonorHome.class);
-                        i.putExtra("name",nameDB);
+                        Intent i = new Intent(DonorLogin.this, DonorDashboard.class);
+                        /*i.putExtra("name",nameDB);
                         i.putExtra("email",emailDB);
                         i.putExtra("phone",phoneDB);
                         i.putExtra("address",addressDB);
                         i.putExtra("password",passDB);
+                        */
+                        SharedPreferences.Editor editor=sp.edit();
+                        editor.putString("name",nameDB);
+                        editor.putString("email",emailDB);
+                        editor.putString("phone",phoneDB);
+                        editor.putString("address",addressDB);
+                        editor.putString("password",passDB);
+                        editor.commit();
+
                         startActivity(i);
+
                     } else {
                         password.setError("Wrong password");
                     }

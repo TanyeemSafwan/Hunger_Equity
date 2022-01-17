@@ -3,7 +3,9 @@ package com.example.myapplication.hunger_equity;
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 
+import android.content.Context;
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
@@ -25,6 +27,7 @@ import okhttp3.Request;
 import okhttp3.Response;
 
 public class DonorHome extends AppCompatActivity {
+    SharedPreferences sp;
     private DatabaseReference mFirebaseDatabase;
     String link;
     OkHttpClient client = new OkHttpClient();
@@ -61,12 +64,18 @@ public class DonorHome extends AppCompatActivity {
         ImageView photo;
         photo=(ImageView)findViewById(R.id.donor_user_photo);
 
-        Intent in=getIntent();
+        /*Intent in=getIntent();
         String userName=in.getStringExtra("name");
         String userEmail=in.getStringExtra("email");
         String userPhone=in.getStringExtra("phone");
         String userAddress=in.getStringExtra("address");
-        String userPassword=in.getStringExtra("password");
+        String userPassword=in.getStringExtra("password");*/
+        sp=getApplicationContext().getSharedPreferences("DonorInfo", Context.MODE_PRIVATE);
+        String userName=sp.getString("name","");
+        String userEmail=sp.getString("email","");
+        String userPhone=sp.getString("phone","");
+        String userAddress=sp.getString("address","");
+        String userPassword=sp.getString("password","");
 
         dName.setText(userName);
         dEmail.setText(userEmail);
@@ -102,11 +111,11 @@ public class DonorHome extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 Intent editIntent=new Intent(DonorHome.this,DonorProfileEdit.class);
-                editIntent.putExtra("name",userName);
+                /*editIntent.putExtra("name",userName);
                 editIntent.putExtra("email",userEmail);
                 editIntent.putExtra("phone",userPhone);
                 editIntent.putExtra("address",userAddress);
-                editIntent.putExtra("password",userPassword);
+                editIntent.putExtra("password",userPassword);*/
                 startActivity(editIntent);
             }
         });
