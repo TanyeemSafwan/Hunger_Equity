@@ -63,13 +63,13 @@
             <ImageButton
                 android:layout_width="150dp"
                 android:layout_height="150dp"
-                android:src="@mipmap/user"
+                android:src="@mipmap/food_donation"
                 android:layout_marginLeft="30dp"
                 />
             <ImageButton
                 android:layout_width="150dp"
                 android:layout_height="150dp"
-                android:src="@mipmap/user"
+                android:src="@mipmap/textbox"
                 android:layout_marginLeft="30dp"
                 />
         </LinearLayout>
@@ -99,16 +99,16 @@
             android:layout_height="wrap_content"
             android:weightSum="2"
             android:orientation="horizontal">
+
             <ImageButton
-                android:layout_width="150dp"
+                android:layout_width="wrap_content"
                 android:layout_height="150dp"
-                android:src="@mipmap/user"
                 android:layout_marginLeft="30dp"
-                />
+                android:src="@mipmap/conversation" />
             <ImageButton
                 android:layout_width="150dp"
                 android:layout_height="150dp"
-                android:src="@mipmap/user"
+                android:src="@mipmap/setting"
                 android:layout_marginLeft="30dp"
                 />
         </LinearLayout>
