@@ -73,10 +73,6 @@ public class CharityHome extends AppCompatActivity {
         String userOrgan=in.getStringExtra("organ");
 
 
-
-
-
-
         cName.setText(userName);
         cEmail.setText(userEmail);
         cPhone.setText(userPhone);
