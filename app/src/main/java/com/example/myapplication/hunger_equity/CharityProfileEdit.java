@@ -2,7 +2,9 @@ package com.example.myapplication.hunger_equity;
 
 import androidx.appcompat.app.AppCompatActivity;
 
+import android.content.Context;
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
@@ -15,6 +17,7 @@ import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
 
 public class CharityProfileEdit extends AppCompatActivity {
+    SharedPreferences sp;
     TextView name;
     EditText email,password,address,organ,phone;
     Button submit;
@@ -39,13 +42,20 @@ public class CharityProfileEdit extends AppCompatActivity {
             }
         });
 
-        Intent gIntent=getIntent();
+      /*  Intent gIntent=getIntent();
         String userName=gIntent.getStringExtra("charityName");
         String userEmail=gIntent.getStringExtra("charityEmail");
         String userPhone=gIntent.getStringExtra("charityPhone");
         String userAddress=gIntent.getStringExtra("charityAddress");
         String userOrgan=gIntent.getStringExtra("charityOrgan");
-        String userPassword=gIntent.getStringExtra("charityPassword");
+        String userPassword=gIntent.getStringExtra("charityPassword");*/
+        sp=getApplicationContext().getSharedPreferences("CharityInfo", Context.MODE_PRIVATE);
+        String userName=sp.getString("name","");
+        String userEmail=sp.getString("email","");
+        String userPhone=sp.getString("phone","");
+        String userAddress=sp.getString("address","");
+        String userOrgan=sp.getString("organ","");
+        String userPassword=sp.getString("password","");
 
         name.setText(userName);
         email.setText(userEmail);

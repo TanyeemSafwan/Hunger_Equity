@@ -15,36 +15,41 @@
         <RelativeLayout
             android:layout_margin="20dp"
             android:layout_width="match_parent"
-            android:layout_height="wrap_content">
+            android:layout_height="wrap_content"
+            >
+
             <ImageButton
-                android:layout_width="40dp"
-                android:layout_height="40dp"
-                android:src="@mipmap/user"
+                android:layout_width="50dp"
+                android:layout_height="50dp"
                 android:scaleType="fitCenter"
-                />
+                android:src="@mipmap/user"
+                android:id="@+id/donor_dashboard_profile"/>
+
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_centerInParent="true"
                 android:text="DashBoard"
-                android:textSize="30dp"
                 android:textColor="@color/white"
-                />
+                android:textSize="35dp"
+                android:translationX="-20dp" />
+
             <ImageButton
-                android:layout_width="40dp"
-                android:layout_height="40dp"
+                android:layout_width="50dp"
+                android:layout_height="50dp"
                 android:layout_alignParentEnd="true"
-                android:translationX="-40dp"
-                android:src="@mipmap/notification"
+                android:backgroundTint="#ffcccc"
                 android:scaleType="fitCenter"
-                android:backgroundTint="#ffcccc"/>
+                android:src="@mipmap/notification"
+                android:translationX="-50dp" />
+
             <ImageButton
-                android:layout_width="40dp"
-                android:layout_height="40dp"
+                android:layout_width="50dp"
+                android:layout_height="50dp"
                 android:layout_alignParentEnd="true"
-                android:src="@mipmap/logout"
+                android:backgroundTint="#ff0000"
                 android:scaleType="centerCrop"
-                android:backgroundTint="#ff0000"/>
+                android:src="@mipmap/logout" />
 
 
 
@@ -52,7 +57,8 @@
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:weightSum="2">
+            android:weightSum="2"
+            android:layout_marginTop="40dp">
 
         </LinearLayout>
         <LinearLayout
