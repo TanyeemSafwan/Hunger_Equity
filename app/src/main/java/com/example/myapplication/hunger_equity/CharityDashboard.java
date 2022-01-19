@@ -17,6 +17,14 @@ public class CharityDashboard extends AppCompatActivity {
         ImageButton profile= (ImageButton) findViewById(R.id.charity_dashboard_profile);
         ImageButton request=(ImageButton)findViewById(R.id.charity_dashboard_request);
         ImageButton logout=(ImageButton)findViewById(R.id.charity_dashboard_logout);
+        ImageButton feed=(ImageButton)findViewById(R.id.charity_dashboard_feed);
+
+        feed.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                startActivity(new Intent(CharityDashboard.this,CharityFeed.class));
+            }
+        });
 
         logout.setOnClickListener(new View.OnClickListener() {
             @Override

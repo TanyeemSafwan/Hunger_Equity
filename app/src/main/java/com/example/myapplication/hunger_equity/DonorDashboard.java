@@ -14,6 +14,14 @@ public class DonorDashboard extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_donor_dashboard);
         ImageButton profile=(ImageButton) findViewById(R.id.donor_dashboard_profile);
+        ImageButton donate=(ImageButton)findViewById(R.id.donor_dashboard_donate);
+
+        donate.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                startActivity(new Intent(DonorDashboard.this,DonorRequestForm.class));
+            }
+        });
 
         profile.setOnClickListener(new View.OnClickListener() {
             @Override
