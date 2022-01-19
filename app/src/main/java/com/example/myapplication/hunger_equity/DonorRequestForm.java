@@ -14,6 +14,7 @@ import android.widget.ImageButton;
 import android.widget.Toast;
 
 import com.example.myapplication.hunger_equity.model.CFeedModel;
+import com.example.myapplication.hunger_equity.model.DFeedModel;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
 
@@ -52,7 +53,7 @@ public class DonorRequestForm extends AppCompatActivity {
 
                 if (checkBox.isChecked()) {
                     String key = mFirebaseDatabase.push().getKey();
-                    CFeedModel donor = new CFeedModel(userName, title.getText().toString(), quantity.getText().toString(), pickup.getText().toString(),
+                    DFeedModel donor = new DFeedModel(userName, title.getText().toString(), quantity.getText().toString(), pickup.getText().toString(),
                             time.getText().toString(),
                             date.getText().toString(),status
                     );

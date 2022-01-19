@@ -36,12 +36,12 @@ public class CharityFeedAdapter extends RecyclerView.Adapter<CharityFeedView> {
     @Override
     public void onBindViewHolder(@NonNull CharityFeedView holder, int position) {
         DFeedModel model=list.get(position);
-        holder.name.setText(model.getFeedUsername().toString());
-        holder.title.setText(model.getFeedTitle().toString());
-        holder.quantity.setText(model.getFeedQuantity().toString());
-        holder.place.setText(model.getFeedPlace().toString());
-        holder.time.setText(model.getFeedTime().toString());
-        holder.date.setText(model.getFeedDate().toString());
+        holder.name.setText(model.getFeedUsername());
+        holder.title.setText(model.getFeedTitle());
+        holder.quantity.setText(model.getFeedQuantity());
+        holder.place.setText(model.getFeedPlace());
+        holder.time.setText(model.getFeedTime());
+        holder.date.setText(model.getFeedDate());
     }
 
     @Override

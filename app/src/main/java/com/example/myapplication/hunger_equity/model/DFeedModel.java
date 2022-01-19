@@ -12,6 +12,7 @@ public class DFeedModel {
     public DFeedModel() {
     }
 
+
     public DFeedModel(String feedUsername, String feedTitle, String feedQuantity, String feedPlace, String feedTime, String feedDate, String status) {
         this.feedUsername = feedUsername;
         this.feedTitle = feedTitle;

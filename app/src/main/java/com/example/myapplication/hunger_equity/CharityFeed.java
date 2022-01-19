@@ -6,6 +6,8 @@ import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
 import android.os.Bundle;
+import android.view.View;
+import android.widget.ImageButton;
 
 import com.example.myapplication.hunger_equity.adapter.CharityFeedAdapter;
 import com.example.myapplication.hunger_equity.model.DFeedModel;
@@ -31,20 +33,31 @@ public class CharityFeed extends AppCompatActivity {
 
         recyclerView=findViewById(R.id.charity_feed_list);
         databaseReference= FirebaseDatabase.getInstance().getReference("Donor_feed");
-        //recyclerView.setHasFixedSize(true);
-        recyclerView.setLayoutManager(new LinearLayoutManager(this));
+        recyclerView.setHasFixedSize(true);
+        RecyclerView.LayoutManager layoutmanager = new LinearLayoutManager(CharityFeed.this);
+        recyclerView.setLayoutManager(layoutmanager);
+
+        ImageButton back=(ImageButton)findViewById(R.id.charity_feed_back);
+
+        back.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                CharityFeed.this.finish();
+            }
+        });
 
         list=new ArrayList<>();
-        adapter=new CharityFeedAdapter(this,list);
+        adapter=new CharityFeedAdapter(CharityFeed.this,list);
         recyclerView.setAdapter(adapter);
 
         databaseReference.addValueEventListener(new ValueEventListener() {
             @Override
             public void onDataChange(@NonNull DataSnapshot snapshot) {
                 for(DataSnapshot dataSnapshot : snapshot.getChildren()){
-                    DFeedModel model=dataSnapshot.getValue(DFeedModel.class);
-                    list.add(model);
+                   DFeedModel model=dataSnapshot.getValue(DFeedModel.class);
+                   list.add(model);
                 }
+
                 adapter.notifyDataSetChanged();
             }
 
