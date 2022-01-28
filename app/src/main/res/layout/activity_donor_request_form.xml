@@ -35,7 +35,7 @@
                 android:layout_marginTop="20dp"
                 android:layout_marginEnd="20dp"
                 android:layout_marginBottom="20dp"
-                android:text="Request Form"
+                android:text="Donation Form"
                 android:textSize="30dp" />
 
             <ImageButton
@@ -151,7 +151,7 @@
             android:layout_width="wrap_content"
             android:layout_height="match_parent"
             android:layout_gravity="center"
-            android:text="REQUEST"
+            android:text="Post"
             android:layout_margin="20dp"/>
 
 
