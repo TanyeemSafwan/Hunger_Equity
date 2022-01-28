@@ -62,9 +62,10 @@ public class CharityFeed extends AppCompatActivity {
                    }
 
                 }
-
                 adapter.notifyDataSetChanged();
-            }
+
+                }
+
 
             @Override
             public void onCancelled(@NonNull DatabaseError error) {
