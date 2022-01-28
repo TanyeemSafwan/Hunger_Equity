@@ -9,6 +9,7 @@ import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.ImageButton;
+import android.widget.Toast;
 
 import com.example.myapplication.hunger_equity.adapter.CharityFeedAdapter;
 import com.example.myapplication.hunger_equity.adapter.DonorFeedAdapter;
@@ -59,7 +60,10 @@ public class DonationFeed extends AppCompatActivity {
             public void onDataChange(@NonNull DataSnapshot snapshot) {
                 for(DataSnapshot dataSnapshot : snapshot.getChildren()){
                     CFeedModel model=dataSnapshot.getValue(CFeedModel.class);
-                    list.add(model);
+                    if(model.getStatus().equals("Active"))
+                    {
+                        list.add(model);
+                    }
                 }
 
                 adapter.notifyDataSetChanged();
@@ -70,5 +74,9 @@ public class DonationFeed extends AppCompatActivity {
 
             }
         });
+    }
+    public void announce()
+    {
+        Toast.makeText(DonationFeed.this, "Request Complete!", Toast.LENGTH_SHORT).show();
     }
 }
