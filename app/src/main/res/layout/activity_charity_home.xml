@@ -73,7 +73,7 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:textSize="25dp"
-            android:text="Donor"
+            android:text="Charity"
             android:textColor="#F8D218"
             android:layout_marginLeft="20dp"/>
         <TextView

@@ -22,8 +22,9 @@
                 android:id="@+id/donor_dashboard_profile"
                 android:layout_width="50dp"
                 android:layout_height="50dp"
-                android:scaleType="fitCenter"
-                android:src="@mipmap/user" />
+                android:scaleType="fitXY"
+                android:src="@mipmap/user"
+                />
 
             <TextView
                 android:layout_width="wrap_content"
@@ -35,6 +36,7 @@
                 android:translationX="-20dp" />
 
             <ImageButton
+                android:id="@+id/donor_dashboard_notifications"
                 android:layout_width="50dp"
                 android:layout_height="50dp"
                 android:layout_alignParentEnd="true"

@@ -32,14 +32,16 @@
                 android:translationX="-10dp"
                 android:textColor="@color/white"
                 />
+
             <ImageButton
+                android:id="@+id/charity_dashboard_notification"
                 android:layout_width="50dp"
                 android:layout_height="50dp"
                 android:layout_alignParentEnd="true"
-                android:translationX="-50dp"
-                android:src="@mipmap/notification"
+                android:backgroundTint="#ffcccc"
                 android:scaleType="fitCenter"
-                android:backgroundTint="#ffcccc"/>
+                android:src="@mipmap/notification"
+                android:translationX="-50dp" />
 
             <ImageButton
                 android:id="@+id/charity_dashboard_logout"

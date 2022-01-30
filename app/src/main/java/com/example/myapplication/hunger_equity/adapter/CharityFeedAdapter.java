@@ -28,9 +28,11 @@ public class CharityFeedAdapter extends RecyclerView.Adapter<CharityFeedView> {
     public static String status="Deactive";
     Context context;
     ArrayList<DFeedModel> list;
+    String UserName;
 
-    public CharityFeedAdapter(Context context, ArrayList<DFeedModel> list)
+    public CharityFeedAdapter(Context context, ArrayList<DFeedModel> list, String UserName)
     {
+        this.UserName=UserName;
         this.context=context;
         this.list=list;
     }
@@ -64,7 +66,7 @@ public class CharityFeedAdapter extends RecyclerView.Adapter<CharityFeedView> {
                             if(i==position)
                             {
                                 String key=dataSnapshot.getKey();
-                                mFirebaseDatabase.child(key).child("status").setValue("Deactive");
+                                mFirebaseDatabase.child(key).child("status").setValue(UserName);
                                 ((CharityFeed)context).announce();
                                 ((CharityFeed)context).finish();
 

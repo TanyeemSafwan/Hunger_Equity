@@ -5,6 +5,8 @@ import androidx.appcompat.app.AppCompatActivity;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
+import android.content.Context;
+import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.ImageButton;
@@ -21,13 +23,17 @@ import com.google.firebase.database.ValueEventListener;
 import java.util.ArrayList;
 
 public class CharityFeed extends AppCompatActivity {
-
+    SharedPreferences sp;
+    String UserName;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         RecyclerView recyclerView;
         DatabaseReference databaseReference;
         CharityFeedAdapter adapter;
         ArrayList<DFeedModel> list;
+
+        sp=getApplicationContext().getSharedPreferences("DonorInfo", Context.MODE_PRIVATE);
+        UserName=sp.getString("name","");
 
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_charity_feed);
@@ -48,7 +54,7 @@ public class CharityFeed extends AppCompatActivity {
         });
 
         list=new ArrayList<>();
-        adapter=new CharityFeedAdapter(CharityFeed.this,list);
+        adapter=new CharityFeedAdapter(CharityFeed.this,list,UserName);
         recyclerView.setAdapter(adapter);
 
         databaseReference.addValueEventListener(new ValueEventListener() {
