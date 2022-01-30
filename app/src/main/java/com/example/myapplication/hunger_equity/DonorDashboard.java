@@ -20,6 +20,7 @@ import com.squareup.picasso.Picasso;
 public class DonorDashboard extends AppCompatActivity {
     SharedPreferences sp;
     DatabaseReference mFirebaseDatabase;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -28,6 +29,14 @@ public class DonorDashboard extends AppCompatActivity {
         ImageButton donate=(ImageButton)findViewById(R.id.donor_dashboard_donate);
         ImageButton logout=(ImageButton)findViewById(R.id.donor_dashboard_logout);
         ImageButton feed=(ImageButton)findViewById(R.id.donor_dashboard_feed);
+        ImageButton notification=(ImageButton)findViewById(R.id.donor_dashboard_notifications);
+
+        notification.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                startActivity(new Intent(DonorDashboard.this,DonorNotification.class));
+            }
+        });
 
 
         feed.setOnClickListener(new View.OnClickListener() {
