@@ -15,6 +15,7 @@ import com.example.myapplication.hunger_equity.CharityFeed;
 import com.example.myapplication.hunger_equity.CharityRequestForm;
 import com.example.myapplication.hunger_equity.R;
 import com.example.myapplication.hunger_equity.model.DFeedModel;
+import com.example.myapplication.hunger_equity.model.DonorNotificationModel;
 import com.google.firebase.database.DataSnapshot;
 import com.google.firebase.database.DatabaseError;
 import com.google.firebase.database.DatabaseReference;
@@ -22,13 +23,18 @@ import com.google.firebase.database.FirebaseDatabase;
 import com.google.firebase.database.Query;
 import com.google.firebase.database.ValueEventListener;
 
+import java.text.DateFormat;
+import java.text.SimpleDateFormat;
 import java.util.ArrayList;
+import java.util.Calendar;
+import java.util.Date;
 
 public class CharityFeedAdapter extends RecyclerView.Adapter<CharityFeedView> {
     public static String status="Deactive";
     Context context;
     ArrayList<DFeedModel> list;
     String UserName;
+    DatabaseReference mfirebaseDatabase2;
 
     public CharityFeedAdapter(Context context, ArrayList<DFeedModel> list, String UserName)
     {
@@ -67,6 +73,13 @@ public class CharityFeedAdapter extends RecyclerView.Adapter<CharityFeedView> {
                             {
                                 String key=dataSnapshot.getKey();
                                 mFirebaseDatabase.child(key).child("status").setValue(UserName);
+                                mfirebaseDatabase2=FirebaseDatabase.getInstance().getReference("DonorNotification");
+                                String key2=mfirebaseDatabase2.push().getKey();
+                                Date date = Calendar.getInstance().getTime();
+                                DateFormat dateFormat = new SimpleDateFormat("yyyy-mm-dd hh:mm:ss");
+                                String strDate = dateFormat.format(date);
+                                DonorNotificationModel not=new DonorNotificationModel(model.getFeedUsername(),UserName,"have accepted your donation",strDate,model.getFeedTitle());
+                                mfirebaseDatabase2.child(key2).setValue(not);
                                 ((CharityFeed)context).announce();
                                 ((CharityFeed)context).finish();
 
