@@ -149,7 +149,7 @@
                 android:layout_width="290dp"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="10dp"
-                android:text="Do you have an account?"
+                android:text="Not Registered Yet?"
                 android:textSize="20dp"
                 android:textStyle="bold"
                 android:textColor="@color/white"
