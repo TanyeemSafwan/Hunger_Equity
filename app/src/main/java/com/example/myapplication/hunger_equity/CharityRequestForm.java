@@ -2,6 +2,7 @@ package com.example.myapplication.hunger_equity;
 
 import androidx.appcompat.app.AppCompatActivity;
 
+import android.app.DatePickerDialog;
 import android.content.Context;
 import android.content.Intent;
 import android.content.SharedPreferences;
@@ -10,6 +11,7 @@ import android.os.Handler;
 import android.view.View;
 import android.widget.Button;
 import android.widget.CheckBox;
+import android.widget.DatePicker;
 import android.widget.EditText;
 import android.widget.ImageButton;
 import android.widget.Toast;
@@ -19,8 +21,13 @@ import com.example.myapplication.hunger_equity.model.Charity;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
 
-public class CharityRequestForm extends AppCompatActivity {
+import java.text.SimpleDateFormat;
+import java.util.Calendar;
+import java.util.Locale;
 
+public class CharityRequestForm extends AppCompatActivity {
+    final Calendar myCalendar= Calendar.getInstance();
+    EditText date2;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -31,7 +38,7 @@ public class CharityRequestForm extends AppCompatActivity {
         EditText title=(EditText)findViewById(R.id.charity_form_title);
         EditText quantity=(EditText)findViewById(R.id.charity_form_quantity);
         EditText address=(EditText)findViewById(R.id.charity_form_address);
-        EditText date=(EditText)findViewById(R.id.charity_form_date);
+        date2=(EditText)findViewById(R.id.charity_form_date);
         EditText description=(EditText)findViewById(R.id.charity_form_description);
         String status="Active";
 
@@ -55,7 +62,7 @@ public class CharityRequestForm extends AppCompatActivity {
                 if (checkBox.isChecked()) {
                     String key = mFirebaseDatabase.push().getKey();
                     CFeedModel charity = new CFeedModel(userName, title.getText().toString(), quantity.getText().toString(), address.getText().toString(),
-                            date.getText().toString(),
+                            date2.getText().toString(),
                             description.getText().toString(),status
                     );
                     mFirebaseDatabase.child(key).setValue(charity);
@@ -75,5 +82,28 @@ public class CharityRequestForm extends AppCompatActivity {
                 }
             }
         });
+
+        DatePickerDialog.OnDateSetListener date =new DatePickerDialog.OnDateSetListener() {
+            @Override
+            public void onDateSet(DatePicker view, int year, int month, int day) {
+                myCalendar.set(Calendar.YEAR, year);
+                myCalendar.set(Calendar.MONTH,month);
+                myCalendar.set(Calendar.DAY_OF_MONTH,day);
+                updateLabel();
+            }
+        };
+        date2.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                new DatePickerDialog(CharityRequestForm.this,date,myCalendar.get(Calendar.YEAR),myCalendar.get(Calendar.MONTH),myCalendar.get(Calendar.DAY_OF_MONTH)).show();
+            }
+        });
+
     }
+    private void updateLabel(){
+        String myFormat="dd/MM/yy";
+        SimpleDateFormat dateFormat=new SimpleDateFormat(myFormat, Locale.UK);
+        date2.setText(dateFormat.format(myCalendar.getTime()));
+    }
+
 }

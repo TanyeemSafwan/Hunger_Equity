@@ -112,9 +112,13 @@
             android:layout_height="wrap_content"
             android:layout_margin="20dp"
             android:background="@color/white"
-            android:hint="Ex. 20/02/20"
+            android:hint="Ex. 2/20/22"
             android:inputType="date"
-            android:padding="5dp"/>
+            android:padding="5dp"
+            android:clickable="false"
+            android:cursorVisible="false"
+            android:focusable="false"
+            android:focusableInTouchMode="false"/>
         <TextView
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
