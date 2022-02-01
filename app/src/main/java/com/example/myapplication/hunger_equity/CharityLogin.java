@@ -13,6 +13,7 @@ import android.widget.Button;
 import android.widget.EditText;
 import android.widget.ImageButton;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import com.google.firebase.database.DataSnapshot;
 import com.google.firebase.database.DatabaseError;
@@ -152,9 +153,11 @@ public class CharityLogin extends AppCompatActivity {
                         startActivity(i);
 
                     } else {
+                        Toast.makeText(CharityLogin.this, "Wrong Password!", Toast.LENGTH_SHORT).show();
                         password.setError("Wrong password");
                     }
                 } else {
+                    Toast.makeText(CharityLogin.this, "NO Such User!", Toast.LENGTH_SHORT).show();
                     password.setError("No such user");
                 }
             }

@@ -13,6 +13,7 @@ import android.widget.Button;
 import android.widget.EditText;
 import android.widget.ImageButton;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import com.google.firebase.database.DataSnapshot;
 import com.google.firebase.database.DatabaseError;
@@ -114,8 +115,8 @@ public class DonorLogin extends AppCompatActivity {
     {
         String takenName=name.getText().toString().trim();
         String takenPassword=password.getText().toString().trim();
-        System.out.println(takenName);
-        System.out.println(takenPassword);
+        //System.out.println(takenName);
+       // System.out.println(takenPassword);
 
         Query checkUser= FirebaseDatabase.getInstance().getReference("a_donor").orderByChild("d_Name").equalTo(takenName);
         checkUser.addListenerForSingleValueEvent(new ValueEventListener() {
@@ -149,9 +150,12 @@ public class DonorLogin extends AppCompatActivity {
                         startActivity(i);
 
                     } else {
+                        Toast.makeText(DonorLogin.this, "Wrong Password!", Toast.LENGTH_SHORT).show();
                         password.setError("Wrong password");
                     }
                 } else {
+                    Toast.makeText(DonorLogin.this, "NO Such User!", Toast.LENGTH_SHORT).show();
+
                     password.setError("No such user");
                 }
             }
