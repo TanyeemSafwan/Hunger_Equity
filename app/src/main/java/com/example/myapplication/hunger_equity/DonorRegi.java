@@ -13,6 +13,7 @@ import android.widget.CheckBox;
 import android.widget.EditText;
 import android.widget.ImageButton;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import com.example.myapplication.hunger_equity.model.Donor;
 import com.google.firebase.database.DataSnapshot;
@@ -49,7 +50,7 @@ public class DonorRegi extends AppCompatActivity {
         dDone=(Button)findViewById(R.id.donor_create);
         look_d=(ImageButton)findViewById(R.id.donor_eye_1);
         look2_d=(ImageButton)findViewById(R.id.donor_eye_2);
-        inputdPassword2=(EditText)findViewById(R.id.donor_password_2);
+        //inputdPassword2=(EditText)findViewById(R.id.donor_password_2);
         tcd=(Button)findViewById(R.id.terms_conditions_donor);
         back=(ImageButton)findViewById(R.id.donor_back_key);
         sign=(TextView)findViewById(R.id.sign_in_donor);
@@ -124,11 +125,13 @@ public class DonorRegi extends AppCompatActivity {
                             inputdPhone.getText().toString()
                     );
                     dFirebaseDatabase.child(key).setValue(donor);
+                    Toast.makeText(DonorRegi.this, "Registered Successfully", Toast.LENGTH_SHORT).show();
                     Intent ion=new Intent(DonorRegi.this,DonorLogin.class);
                     startActivity(ion);
                 }
                 else
                 {
+                    Toast.makeText(DonorRegi.this, "UserName Already Taken Or You Have Not Completed The Field", Toast.LENGTH_SHORT).show();
                     inputdName.setError("UserName Already Taken");
                 }
 
@@ -137,7 +140,7 @@ public class DonorRegi extends AppCompatActivity {
         tcd.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Uri uri = Uri.parse("https://developer.android.com/studio/terms"); // missing 'http://' will cause crashed
+                Uri uri = Uri.parse("https://developer.android.com/studio/terms");
                 Intent intent = new Intent(Intent.ACTION_VIEW, uri);
                 startActivity(intent);
             }
@@ -151,7 +154,7 @@ public class DonorRegi extends AppCompatActivity {
     public boolean check()
     {
         String takenName=inputdName.getText().toString();
-        String takenPassword=inputdPassword.getText().toString();
+       //String takenPassword=inputdPassword.getText().toString();
         Query checkUser=dFirebaseDatabase.orderByChild("D_Name").equalTo(takenName);
         checkUser.addListenerForSingleValueEvent(new ValueEventListener() {
             @Override

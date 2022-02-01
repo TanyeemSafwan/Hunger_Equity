@@ -78,7 +78,7 @@ public class DFeedModel {
     public void setStatus(String status) {
         this.status = status;
     }
-
+    //to string for changing values to string if needed for list values
     @Override
     public String toString() {
         return "DFeedModel{" +

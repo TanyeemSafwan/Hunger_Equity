@@ -13,6 +13,7 @@ import android.widget.CheckBox;
 import android.widget.EditText;
 import android.widget.ImageButton;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import com.example.myapplication.hunger_equity.model.Charity;
 import com.google.firebase.database.DataSnapshot;
@@ -146,12 +147,16 @@ public class CharityRegister extends AppCompatActivity {
                             inputcPhone.getText().toString()
                     );
                     mFirebaseDatabase.child(key).setValue(charity);
+                    Toast.makeText(CharityRegister.this, "Registration Successful!", Toast.LENGTH_SHORT).show();
+
                     Intent ion=new Intent(CharityRegister.this,CharityLogin.class);
                     startActivity(ion);
                 }
                 else
                 {
-                    inputcName.setError("UserName already taken");
+                    Toast.makeText(CharityRegister.this, "UserName Already Taken Or You Have Not Completed The Field", Toast.LENGTH_SHORT).show();
+
+                    inputcName.setError("UserName Already Taken Or You Have Not Completed The Field");
                 }
             }
         });

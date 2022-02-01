@@ -8,12 +8,11 @@ import android.view.View;
 import android.widget.Button;
 
 public class Registration extends AppCompatActivity {
-
+    Button chooseButton1,chooseButton2;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_registration);
-        Button chooseButton1,chooseButton2;
         chooseButton1=(Button) findViewById(R.id.charity_button);
         chooseButton2=(Button) findViewById(R.id.donor_button);
 
@@ -26,6 +25,7 @@ public class Registration extends AppCompatActivity {
 
             }
         });
+
         chooseButton1.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
