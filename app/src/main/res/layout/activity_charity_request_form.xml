@@ -81,6 +81,7 @@
             android:layout_margin="20dp"
             android:background="@color/white"
             android:hint="Ex. 500"
+            android:inputType="number"
             android:padding="5dp"/>
         <TextView
             android:layout_width="match_parent"
@@ -96,6 +97,7 @@
             android:layout_margin="20dp"
             android:background="@color/white"
             android:hint="Ex. 25,Savar Uttar Para, Savar, Dhaka"
+            android:inputType="textPostalAddress"
             android:padding="5dp"/>
         <TextView
             android:layout_width="match_parent"
@@ -111,6 +113,7 @@
             android:layout_margin="20dp"
             android:background="@color/white"
             android:hint="Ex. 20/02/20"
+            android:inputType="date"
             android:padding="5dp"/>
         <TextView
             android:layout_width="match_parent"
