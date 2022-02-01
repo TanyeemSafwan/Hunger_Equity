@@ -1,5 +1,14 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
+  <component name="DesignSurface">
+    <option name="filePathToZoomLevelMap">
+      <map>
+        <entry key="..\:/Users/User/AndroidStudioProjects/Hunger_Equity/app/src/main/res/layout/activity_charity_register.xml" value="0.10648148148148148" />
+        <entry key="..\:/Users/User/AndroidStudioProjects/Hunger_Equity/app/src/main/res/layout/activity_donor_notification.xml" value="0.10648148148148148" />
+        <entry key="..\:/Users/User/AndroidStudioProjects/Hunger_Equity/app/src/main/res/layout/activity_donor_regi.xml" value="0.10648148148148148" />
+      </map>
+    </option>
+  </component>
   <component name="ExternalStorageConfigurationManager" enabled="true" />
   <component name="ProjectRootManager" version="2" languageLevel="JDK_11" default="true" project-jdk-name="11" project-jdk-type="JavaSDK" />
 </project>
