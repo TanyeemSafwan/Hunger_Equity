@@ -5,6 +5,7 @@ import androidx.appcompat.app.AppCompatActivity;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
+import android.app.Activity;
 import android.content.Context;
 import android.content.Intent;
 import android.content.SharedPreferences;
@@ -15,14 +16,9 @@ import android.widget.ImageButton;
 import android.widget.ImageView;
 import android.widget.TextView;
 
-import com.bumptech.glide.Glide;
 import com.example.myapplication.hunger_equity.adapter.CharityHomeAdapter;
 import com.example.myapplication.hunger_equity.adapter.CharityHomeAdapter2;
-import com.example.myapplication.hunger_equity.adapter.DonorHomeAdapter;
-import com.example.myapplication.hunger_equity.adapter.DonorHomeAdapter2;
 import com.example.myapplication.hunger_equity.model.CFeedModel;
-import com.example.myapplication.hunger_equity.model.Charity;
-import com.example.myapplication.hunger_equity.model.CharityModel;
 import com.example.myapplication.hunger_equity.model.DFeedModel;
 import com.google.firebase.database.DataSnapshot;
 import com.google.firebase.database.DatabaseError;
@@ -58,10 +54,13 @@ public class CharityHome extends AppCompatActivity {
             return response.body().string();
         }
     }
+
+    public static Activity fa;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_charity_home);
+        fa = this;
         TextView cName,cEmail,cPhone,cAdress;
         ImageView photo;
         Button edit;
@@ -134,6 +133,7 @@ public class CharityHome extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 Intent editIntent=new Intent(CharityHome.this,CharityProfileEdit.class);
+
                 startActivity(editIntent);
             }
         });
@@ -192,5 +192,7 @@ public class CharityHome extends AppCompatActivity {
 
             }
         });
+
     }
+
 }

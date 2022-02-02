@@ -73,7 +73,20 @@ public class CharityProfileEdit extends AppCompatActivity {
                             userPassword,
                             phone.getText().toString()
                     );
+                    sp=getSharedPreferences("CharityInfo", Context.MODE_PRIVATE);
+                    SharedPreferences.Editor editor=sp.edit();
+                    editor.putString("name",userName);
+                    editor.putString("email",email.getText().toString());
+                    editor.putString("phone",phone.getText().toString());
+                    editor.putString("organ",organ.getText().toString());
+                    editor.putString("address",address.getText().toString());
+                    editor.putString("password",userPassword);
+                    editor.commit();
                     mFirebaseDatabase.child(key).setValue(charity);
+
+                    CharityHome.fa.finish();
+
+                    startActivity(new Intent(CharityProfileEdit.this,CharityHome.class));
                     CharityProfileEdit.this.finish();
                 }
                 else

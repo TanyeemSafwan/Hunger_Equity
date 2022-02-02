@@ -5,6 +5,7 @@ import androidx.appcompat.app.AppCompatActivity;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
+import android.app.Activity;
 import android.content.Context;
 import android.content.Intent;
 import android.content.SharedPreferences;
@@ -54,6 +55,7 @@ public class DonorHome extends AppCompatActivity {
             return response.body().string();
         }
     }
+    public static Activity fa;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -61,7 +63,7 @@ public class DonorHome extends AppCompatActivity {
         TextView dName,dEmail,dPhone,dAdress;
         Button edit;
         ImageButton back=(ImageButton)findViewById(R.id.donor_home_back);
-
+        fa=this;
         back.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {

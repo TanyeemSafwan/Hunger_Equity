@@ -3,6 +3,7 @@ package com.example.myapplication.hunger_equity;
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.recyclerview.widget.RecyclerView;
 
 import android.content.ContentResolver;
 import android.content.Intent;
@@ -10,6 +11,7 @@ import android.net.Uri;
 import android.os.Bundle;
 import android.os.Handler;
 import android.view.View;
+import android.view.ViewGroup;
 import android.webkit.MimeTypeMap;
 import android.widget.Button;
 import android.widget.ImageView;
@@ -118,6 +120,7 @@ public class CharityHomePic extends AppCompatActivity {
                 Toast.makeText(CharityHomePic.this, "Uploading Failed !!", Toast.LENGTH_SHORT).show();
             }
         });
+
     }
 
     private String getFileExtension(Uri mUri){

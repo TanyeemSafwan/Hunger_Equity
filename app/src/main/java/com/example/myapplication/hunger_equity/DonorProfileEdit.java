@@ -71,6 +71,17 @@ public class DonorProfileEdit extends AppCompatActivity {
                             phone.getText().toString()
                     );
                     mFirebaseDatabase.child(key).setValue(donor);
+                    sp=getSharedPreferences("DonorInfo", Context.MODE_PRIVATE);
+                    SharedPreferences.Editor editor=sp.edit();
+                    editor.putString("name",userName);
+                    editor.putString("email",email.getText().toString());
+                    editor.putString("phone",phone.getText().toString());
+                    editor.putString("address",address.getText().toString());
+                    editor.putString("password",userPassword);
+                    editor.commit();
+                    CharityHome.fa.finish();
+
+                    startActivity(new Intent(DonorProfileEdit.this,DonorHome.class));
                     DonorProfileEdit.this.finish();
                 }
                 else
