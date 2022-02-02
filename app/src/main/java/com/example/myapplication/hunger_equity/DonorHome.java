@@ -2,6 +2,8 @@ package com.example.myapplication.hunger_equity;
 
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.recyclerview.widget.LinearLayoutManager;
+import androidx.recyclerview.widget.RecyclerView;
 
 import android.content.Context;
 import android.content.Intent;
@@ -13,6 +15,10 @@ import android.widget.ImageButton;
 import android.widget.ImageView;
 import android.widget.TextView;
 
+import com.example.myapplication.hunger_equity.adapter.DonorHomeAdapter;
+import com.example.myapplication.hunger_equity.adapter.DonorHomeAdapter2;
+import com.example.myapplication.hunger_equity.model.CFeedModel;
+import com.example.myapplication.hunger_equity.model.DFeedModel;
 import com.google.firebase.database.DataSnapshot;
 import com.google.firebase.database.DatabaseError;
 import com.google.firebase.database.DatabaseReference;
@@ -21,6 +27,7 @@ import com.google.firebase.database.ValueEventListener;
 import com.squareup.picasso.Picasso;
 
 import java.io.IOException;
+import java.util.ArrayList;
 
 import okhttp3.OkHttpClient;
 import okhttp3.Request;
@@ -28,6 +35,12 @@ import okhttp3.Response;
 
 public class DonorHome extends AppCompatActivity {
     SharedPreferences sp;
+    RecyclerView recyclerView,recyclerView2;
+    DatabaseReference databaseReference2,databaseReference3;
+    DonorHomeAdapter adapter;
+    DonorHomeAdapter2 adapter2;
+    ArrayList<DFeedModel> list;
+    ArrayList<CFeedModel> list2;
     private DatabaseReference mFirebaseDatabase;
     String link;
     OkHttpClient client = new OkHttpClient();
@@ -119,5 +132,64 @@ public class DonorHome extends AppCompatActivity {
                 startActivity(editIntent);
             }
         });
+        recyclerView=findViewById(R.id.donor_home_rv);
+        recyclerView2=findViewById(R.id.donor_home_rv_2);
+        databaseReference2=FirebaseDatabase.getInstance().getReference("Donor_feed");
+        databaseReference3=FirebaseDatabase.getInstance().getReference("Charity_feed");
+        recyclerView.setHasFixedSize(true);
+        RecyclerView.LayoutManager layoutmanager = new LinearLayoutManager(DonorHome.this);
+        recyclerView.setLayoutManager(layoutmanager);
+
+        list=new ArrayList<>();
+        adapter=new DonorHomeAdapter(DonorHome.this,list);
+        recyclerView.setAdapter(adapter);
+        databaseReference2.addValueEventListener(new ValueEventListener() {
+            @Override
+            public void onDataChange(@NonNull DataSnapshot snapshot) {
+                for(DataSnapshot dataSnapshot:snapshot.getChildren())
+                {
+                    DFeedModel model=dataSnapshot.getValue(DFeedModel.class);
+                    if(model.getFeedUsername().equals(userName) && !model.getStatus().equals("Active"))
+                    {
+                        list.add(model);
+                    }
+                }
+                adapter.notifyDataSetChanged();
+            }
+
+            @Override
+            public void onCancelled(@NonNull DatabaseError error) {
+
+            }
+        });
+        recyclerView2.setHasFixedSize(true);
+        RecyclerView.LayoutManager layoutmanager2 = new LinearLayoutManager(DonorHome.this);
+        recyclerView2.setLayoutManager(layoutmanager2);
+        list2=new ArrayList<>();
+        adapter2=new DonorHomeAdapter2(DonorHome.this,list2);
+        recyclerView2.setAdapter(adapter2);
+        databaseReference3.addValueEventListener(new ValueEventListener() {
+            @Override
+            public void onDataChange(@NonNull DataSnapshot snapshot) {
+                for(DataSnapshot dataSnapshot:snapshot.getChildren())
+                {
+                    CFeedModel model=dataSnapshot.getValue(CFeedModel.class);
+                    if(model.getStatus().equals(userName))
+                    {
+                        list2.add(model);
+                    }
+                }
+                adapter.notifyDataSetChanged();
+            }
+
+            @Override
+            public void onCancelled(@NonNull DatabaseError error) {
+
+            }
+        });
+
+
+
+
     }
 }

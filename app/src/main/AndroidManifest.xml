@@ -14,6 +14,12 @@
         android:theme="@style/Theme.Hunger_Equity"
         android:usesCleartextTraffic="true">
         <activity
+            android:name=".ContactUS"
+            android:exported="false" />
+        <activity
+            android:name=".CharityChangePassword"
+            android:exported="false" />
+        <activity
             android:name=".DonorNotification"
             android:exported="false" />
         <activity

@@ -112,14 +112,16 @@
             android:orientation="horizontal">
 
             <ImageButton
+                android:id="@+id/donor_dashboard_message"
                 android:layout_width="wrap_content"
                 android:layout_height="150dp"
                 android:layout_marginLeft="30dp"
                 android:src="@mipmap/conversation" />
             <ImageButton
+                android:id="@+id/donor_dashboard_password"
                 android:layout_width="150dp"
                 android:layout_height="150dp"
-                android:src="@mipmap/setting"
+                android:src="@mipmap/password"
                 android:layout_marginLeft="30dp"
                 />
         </LinearLayout>
@@ -140,9 +142,36 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:textSize="20dp"
-                android:text="Settings"
+                android:text="Change Password"
                 android:textColor="@color/white"
-                android:layout_marginLeft="100dp"/>
+                android:layout_marginLeft="55dp"/>
+        </LinearLayout>
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:weightSum="2"
+            android:orientation="horizontal">
+
+            <ImageButton
+                android:id="@+id/donor_dashboard_contact"
+                android:layout_width="wrap_content"
+                android:layout_height="150dp"
+                android:layout_marginLeft="30dp"
+                android:src="@mipmap/help" />
+        </LinearLayout>
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal">
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textSize="20dp"
+                android:text="Contact Us"
+                android:textColor="@color/white"
+                android:layout_marginLeft="60dp"/>
+
         </LinearLayout>
 
 

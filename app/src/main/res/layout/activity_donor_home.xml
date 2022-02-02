@@ -130,6 +130,16 @@
             android:background="@color/black"
             />
 
+        <androidx.recyclerview.widget.RecyclerView
+            android:id="@+id/donor_home_rv"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content" />
+
+        <androidx.recyclerview.widget.RecyclerView
+            android:id="@+id/donor_home_rv_2"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content" />
+
 
     </LinearLayout>
 
