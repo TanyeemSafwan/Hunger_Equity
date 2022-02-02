@@ -79,7 +79,7 @@ public class DonorProfileEdit extends AppCompatActivity {
                     editor.putString("address",address.getText().toString());
                     editor.putString("password",userPassword);
                     editor.commit();
-                    CharityHome.fa.finish();
+                    DonorHome.fa.finish();
 
                     startActivity(new Intent(DonorProfileEdit.this,DonorHome.class));
                     DonorProfileEdit.this.finish();
