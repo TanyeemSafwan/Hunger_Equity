@@ -6,9 +6,11 @@ import androidx.appcompat.app.AppCompatActivity;
 import android.content.Context;
 import android.content.Intent;
 import android.content.SharedPreferences;
+import android.media.Image;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.ImageButton;
+import android.widget.Toast;
 
 import com.google.firebase.database.DataSnapshot;
 import com.google.firebase.database.DatabaseError;
@@ -30,6 +32,31 @@ public class DonorDashboard extends AppCompatActivity {
         ImageButton logout=(ImageButton)findViewById(R.id.donor_dashboard_logout);
         ImageButton feed=(ImageButton)findViewById(R.id.donor_dashboard_feed);
         ImageButton notification=(ImageButton)findViewById(R.id.donor_dashboard_notifications);
+        ImageButton password=(ImageButton)findViewById(R.id.donor_dashboard_password);
+        ImageButton message=(ImageButton)findViewById(R.id.donor_dashboard_message);
+        ImageButton contact=(ImageButton)findViewById(R.id.donor_dashboard_contact);
+
+        message.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Toast.makeText(DonorDashboard.this, "Under Construction!", Toast.LENGTH_SHORT).show();
+
+            }
+        });
+        contact.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Toast.makeText(DonorDashboard.this, "Under Construction!", Toast.LENGTH_SHORT).show();
+
+            }
+        });
+
+        password.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                startActivity(new Intent(DonorDashboard.this,DonorChangePassword.class));
+            }
+        });
 
         notification.setOnClickListener(new View.OnClickListener() {
             @Override

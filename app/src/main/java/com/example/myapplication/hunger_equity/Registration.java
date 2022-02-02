@@ -19,9 +19,8 @@ public class Registration extends AppCompatActivity {
         chooseButton2.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent Intent = new Intent(Registration.this, DonorRegi.class);
+                Intent Intent = new Intent(Registration.this, DonorLogin.class);
                 Registration.this.startActivity(Intent);
-                Registration.this.finish();
 
             }
         });
@@ -29,7 +28,7 @@ public class Registration extends AppCompatActivity {
         chooseButton1.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent intent=new Intent(Registration.this,CharityRegister.class);
+                Intent intent=new Intent(Registration.this,CharityLogin.class);
                 startActivity(intent);
             }
         });

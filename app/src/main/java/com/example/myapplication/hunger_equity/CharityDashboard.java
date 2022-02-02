@@ -10,6 +10,7 @@ import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
 import android.widget.ImageButton;
+import android.widget.Toast;
 
 import com.google.firebase.database.DataSnapshot;
 import com.google.firebase.database.DatabaseError;
@@ -31,6 +32,30 @@ public class CharityDashboard extends AppCompatActivity {
         ImageButton logout=(ImageButton)findViewById(R.id.charity_dashboard_logout);
         ImageButton feed=(ImageButton)findViewById(R.id.charity_dashboard_feed);
         ImageButton notification=(ImageButton)findViewById(R.id.charity_dashboard_notification);
+        ImageButton password=(ImageButton)findViewById(R.id.charity_dashboard_password);
+        ImageButton message=(ImageButton)findViewById(R.id.charity_dashboard_messages);
+        ImageButton help=(ImageButton)findViewById(R.id.charity_dashboard_contact);
+
+        help.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Toast.makeText(CharityDashboard.this, "Under Construction!", Toast.LENGTH_SHORT).show();
+
+            }
+        });
+
+        message.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Toast.makeText(CharityDashboard.this, "Under Construction!", Toast.LENGTH_SHORT).show();
+            }
+        });
+        password.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                startActivity(new Intent(CharityDashboard.this,CharityChangePassword.class));
+            }
+        });
 
         notification.setOnClickListener(new View.OnClickListener() {
             @Override

@@ -20,6 +20,9 @@
             android:name=".CharityChangePassword"
             android:exported="false" />
         <activity
+            android:name=".DonorChangePassword"
+            android:exported="false" />
+        <activity
             android:name=".DonorNotification"
             android:exported="false" />
         <activity
